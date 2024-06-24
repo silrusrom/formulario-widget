@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de Puntuación</title>
+  <script>
+    function calcularPuntuacion() {
+      var puntuacion = 0;
+      var respuestas = document.getElementsByTagName('input');
+      for (var i = 0; i < respuestas.length; i++) {
+        if (respuestas[i].type === 'radio' && respuestas[i].checked) {
+          puntuacion += parseInt(respuestas[i].value);
+        }
+      }
+      document.getElementById('resultado').textContent = 'Tu puntuación total es: ' + puntuacion;
+    }
+  </script>
+</head>
+<body>
+  <h2>¿Cómo organizo mi tiempo?</h2>
+  
+  <form id="formularioTiempo">
+    <p>Soy plenamente consciente de a qué dedico mi tiempo diariamente:</p>
+    <input type="radio" name="respuesta1" value="0"> 0 - No me ocurre<br>
+    <input type="radio" name="respuesta1" value="1"> 1 - A veces me ocurre<br>
+    <input type="radio" name="respuesta1" value="2"> 2 - Habitualmente me ocurre<br>
+    <input type="radio" name="respuesta1" value="3"> 3 - Sí me ocurre<br>
+    
+    <p>Registro por escrito mis metas y objetivos personales y académicos:</p>
+    <input type="radio" name="respuesta2" value="0"> 0 - No me ocurre<br>
+    <input type="radio" name="respuesta2" value="1"> 1 - A veces me ocurre<br>
+    <input type="radio" name="respuesta2" value="2"> 2 - Habitualmente me ocurre<br>
+    <input type="radio" name="respuesta2" value="3"> 3 - Sí me ocurre<br>
+  </form>
+
+  <button type="button" onclick="calcularPuntuacion()">Calcular Puntuación</button>
+  <p id="resultado"></p>
+</body>
+</html>
